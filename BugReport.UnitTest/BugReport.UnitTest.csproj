@@ -34,4 +34,10 @@
     <PackageReference Include="coverlet.collector" Version="3.1.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BugReport.EF_Core\BugReport.EF_Core.csproj" />
+    <ProjectReference Include="..\BugReport.Repository\BugReport.Repository.csproj" />
+    <ProjectReference Include="..\BugReport.Service\BugReport.Service.csproj" />
+  </ItemGroup>
+
 </Project>

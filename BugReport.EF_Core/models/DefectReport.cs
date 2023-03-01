@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace BugReport.EF_Core;
+namespace BugReport.EF_Core.models;
 
-public partial class BugReport
+public partial class DefectReport
 {
     public long Seq { get; set; }
 

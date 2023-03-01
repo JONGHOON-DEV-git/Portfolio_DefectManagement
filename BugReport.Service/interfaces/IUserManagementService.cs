@@ -5,26 +5,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BugReport.Repository.interfaces
+namespace BugReport.Service.interfaces
 {
-    //작업필요 
-    public interface IUserRepository
+    public interface IUserManagementService
     {
-        //Create User Info
+        //가입
         public void CreateUser(string userId, string password, string userNm);
 
-        //Authenticate
         public bool AuthenticateUser(string userId, string password);
-
-        //Delete User Info
+        //삭제
         public void DeleteUser(int id);
 
-        //Update User Info 
+        //정보 수정
         public void UpdateUser(int id);
-
-        //Get User Info 
-        public User GetUser(int id);
-
-        public User GetUser(string userId);
+        
     }
 }

@@ -1,16 +1,29 @@
+
+
+using BugReport.Repository.user;
+
 namespace BugReport.UnitTest
 {
-    public class Tests
+    public class RepositoryTest
     {
+        IUserRepository repository = new EF_UserRepository();
         [SetUp]
         public void Setup()
         {
         }
 
         [Test]
-        public void Test1()
+        public void CreateUserCheck()
         {
-            Assert.Pass();
+            // GUID로 테스트용 계정 생성
+            Guid guid = Guid.NewGuid();
+            var randomId = guid.ToString().Replace("-", "").Substring(0, 20);
+
+            repository.CreateUser(randomId,"test","test");
+            bool authenticateResult = repository.AuthenticateUser(randomId, "test");
+            Assert.That(authenticateResult, Is.EqualTo(true));
+            var user = repository.GetUser(randomId);
+            Assert.That(randomId, Is.EqualTo(user.UserId));
         }
     }
 }

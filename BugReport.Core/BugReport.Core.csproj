@@ -6,9 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\BugReport.EF_Core\BugReport.EF_Core.csproj" />
-    <ProjectReference Include="..\BugReport.Repository\BugReport.Repository.csproj" />
-  </ItemGroup>
-
 </Project>

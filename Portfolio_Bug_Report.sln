@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BugReport.UI", "BugReport.UI\BugReport.UI.csproj", "{7EBE944E-FE0B-4B1D-9CA3-A53FEE9C5280}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugReport.UI", "BugReport.UI\BugReport.UI.csproj", "{7EBE944E-FE0B-4B1D-9CA3-A53FEE9C5280}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BugReport.Repository", "BugReport.Repository\BugReport.Repository.csproj", "{B9DE235C-44F8-4EB5-9D21-27EDDB147B88}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugReport.Repository", "BugReport.Repository\BugReport.Repository.csproj", "{B9DE235C-44F8-4EB5-9D21-27EDDB147B88}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BugReport.Service", "BugReport.Service\BugReport.Service.csproj", "{13EE455B-E273-4BA3-8017-ABE13FF70015}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugReport.Service", "BugReport.Service\BugReport.Service.csproj", "{13EE455B-E273-4BA3-8017-ABE13FF70015}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BugReport.EF_Core", "BugReport.EF_Core\BugReport.EF_Core.csproj", "{323BC3A5-C165-492F-8A45-6D2E0D6EC612}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugReport.EF_Core", "BugReport.EF_Core\BugReport.EF_Core.csproj", "{323BC3A5-C165-492F-8A45-6D2E0D6EC612}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BugReport.UnitTest", "BugReport.UnitTest\BugReport.UnitTest.csproj", "{6F56FCED-3E3F-46B5-B136-92D43A31A4F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugReport.UnitTest", "BugReport.UnitTest\BugReport.UnitTest.csproj", "{6F56FCED-3E3F-46B5-B136-92D43A31A4F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BugReport.Core", "BugReport.Core\BugReport.Core.csproj", "{50FE6D5C-1760-4B46-8BA7-113FD6A5FC78}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{6F56FCED-3E3F-46B5-B136-92D43A31A4F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F56FCED-3E3F-46B5-B136-92D43A31A4F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F56FCED-3E3F-46B5-B136-92D43A31A4F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50FE6D5C-1760-4B46-8BA7-113FD6A5FC78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50FE6D5C-1760-4B46-8BA7-113FD6A5FC78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50FE6D5C-1760-4B46-8BA7-113FD6A5FC78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50FE6D5C-1760-4B46-8BA7-113FD6A5FC78}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
