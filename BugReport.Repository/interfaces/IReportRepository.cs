@@ -13,14 +13,16 @@ namespace BugReport.Repository.interfaces
     {
         public void CreateReport(DefectReport report);
 
-        public List<DefectReport> GetReports();
+        public List<DefectReportView> GetReports(int page, int row);
 
-        public List<DefectReport> GetReports(bool demand);
+        public DefectReportView GetReport(int id);
 
-        public List<DefectReport> GetReports(bool demand, DateTime lastWriteTime);
+        public List<DefectReportView> GetReports(bool demand);
 
-        public void UpdateReport(DefectReport report);
+        public List<DefectReportView> GetReports(bool demand, DateTime lastWriteTime);
 
-        public void DeleteReport(DefectReport report);
+        public void UpdateReport(int defectId, DefectReport report);
+
+        public void DeleteReport(int defectId);
     }
 }

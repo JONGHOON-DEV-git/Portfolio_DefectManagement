@@ -12,32 +12,32 @@ using System.Threading.Tasks;
 
 namespace BugReport.Repository.user
 {
-    public class EF_UserRepository : IUserRepository
+    public class EFCoreUserRepository : IUserRepository
     {
         
-        public bool AuthenticateUser(string userId, string password)
+        public bool AuthenticateUser(string loginID, string password)
         {
             using (ReportDbContext db = new ReportDbContext())
             {
                 UserManagementProcedure sp_User = new UserManagementProcedure(db);
-                return sp_User.CheckAuthenticateUser(userId, password);
+                return sp_User.CheckAuthenticateUser(loginID, password);
             }
         }
 
-        public void CreateUser(string userId, string password, string userNm)
+        public void CreateUser(string loginID, string password, string userNm)
         {
             using (ReportDbContext db = new ReportDbContext())
             {
                 UserManagementProcedure sp_User = new UserManagementProcedure(db);
-                sp_User.CreateUser(userId, password, userNm);
+                sp_User.CreateUser(loginID, password, userNm);
             }
         }
 
-        public User GetUser(string userId)
+        public User GetUser(string loginID)
         {
             using (ReportDbContext db = new ReportDbContext())
             {
-                var org = db.Users.Where(x => x.UserId == userId).FirstOrDefault();
+                var org = db.Users.Where(x => x.UserId == loginID).FirstOrDefault();
                 if (org == null) throw new Exception(ExceptionMessages.NotFoundUser);
                 return org;
             }

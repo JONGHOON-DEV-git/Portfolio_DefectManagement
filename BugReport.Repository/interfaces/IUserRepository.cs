@@ -11,12 +11,12 @@ namespace BugReport.Repository.interfaces
     public interface IUserRepository
     {
         //Create User Info
-        public void CreateUser(string userId, string password, string userNm);
+        public void CreateUser(string loginID, string password, string userNm);
 
         //Authenticate
-        public bool AuthenticateUser(string userId, string password);
+        public bool AuthenticateUser(string loginID, string password);
 
 
-        public User GetUser(string userId);
+        public User GetUser(string loginID);
     }
 }

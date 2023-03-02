@@ -1,4 +1,5 @@
-﻿using BugReport.EF_Core.models;
+﻿using BugReport.Core;
+using BugReport.EF_Core.models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,12 +13,6 @@ namespace BugReport.Service.interfaces
         //가입
         public void CreateUser(string userId, string password, string userNm);
 
-        public bool AuthenticateUser(string userId, string password);
-        //삭제
-        public void DeleteUser(int id);
-
-        //정보 수정
-        public void UpdateUser(int id);
-        
+        public UserInfoMessage AuthenticateUser(string userId, string password);
     }
 }

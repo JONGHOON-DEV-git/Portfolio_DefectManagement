@@ -1,0 +1,44 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Register";
+}
+<style>
+    button[type="submit"] {
+        background-color: #D5F5E3;
+        border: none;
+        color: black;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 5px;
+        float: right;
+    }
+</style>
+ <h1>Register</h1>
+<hr />
+<form method="post" action="/SignUpRequest">
+    <table>
+        <tr>
+            <td>Email:</td>
+            <td><input type="text" name="Id" required /></td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td><input type="password" name="Password" required /></td>
+        </tr>
+        <tr>
+            <td>Confirm password:</td>
+            <td><input type="password" name="ConfirmPassword" required /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button type="submit">가입</button></td>
+        </tr>
+    </table>
+</form>

@@ -11,6 +11,6 @@ namespace BugReport.Core
     {
         public static readonly string NotFoundUser = @"Not Found User";
 
-        
+        public static readonly string NotMatchedIdOrPassword = @"아이디 또는 패스워드가 맞지않습니다.";
     }
 }

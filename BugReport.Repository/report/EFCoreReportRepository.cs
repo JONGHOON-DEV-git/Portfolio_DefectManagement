@@ -9,34 +9,43 @@ using System.Threading.Tasks;
 
 namespace BugReport.Repository.report
 {
-    internal class Cache_ReportRepository : IReportRepository
+    public class EFCoreReportRepository : IReportRepository
     {
         public void CreateReport(DefectReport report)
         {
-            throw new NotImplementedException();
+            using (ReportDbContext context = new())
+            {
+                context.DefectReports.Add(report);
+                context.SaveChanges();
+            }
         }
 
-        public void DeleteReport(DefectReport report)
+        public void DeleteReport(int defectId)
         {
             throw new NotImplementedException();
         }
 
-        public List<DefectReport> GetReports()
+        public DefectReportView GetReport(int id)
         {
             throw new NotImplementedException();
         }
 
-        public List<DefectReport> GetReports(bool demand)
+        public List<DefectReportView> GetReports(int page, int row)
         {
             throw new NotImplementedException();
         }
 
-        public List<DefectReport> GetReports(bool demand, DateTime lastWriteTime)
+        public List<DefectReportView> GetReports(bool demand)
         {
             throw new NotImplementedException();
         }
 
-        public void UpdateReport(DefectReport report)
+        public List<DefectReportView> GetReports(bool demand, DateTime lastWriteTime)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateReport(int defectId, DefectReport report)
         {
             throw new NotImplementedException();
         }
