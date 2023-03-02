@@ -25,22 +25,22 @@ namespace BugReport.Repository.report
             throw new NotImplementedException();
         }
 
-        public DefectReportView GetReport(int id)
+        public vw_DefectReportInfo GetReport(int id)
         {
             throw new NotImplementedException();
         }
 
-        public List<DefectReportView> GetReports(int page, int row)
+        public List<vw_DefectReportInfo> GetReports(int page, int row)
         {
             throw new NotImplementedException();
         }
 
-        public List<DefectReportView> GetReports(bool demand)
+        public List<vw_DefectReportInfo> GetReports(bool demand)
         {
             throw new NotImplementedException();
         }
 
-        public List<DefectReportView> GetReports(bool demand, DateTime lastWriteTime)
+        public List<vw_DefectReportInfo> GetReports(bool demand, DateTime lastWriteTime)
         {
             throw new NotImplementedException();
         }

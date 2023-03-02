@@ -6,7 +6,7 @@ namespace BugReport.UnitTest
 {
     public class RepositoryTest
     {
-        IUserRepository repository = new EF_UserRepository();
+        IUserRepository repository = new EFCoreUserRepository();
         [SetUp]
         public void Setup()
         {

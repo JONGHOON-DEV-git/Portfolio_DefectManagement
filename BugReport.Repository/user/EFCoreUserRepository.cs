@@ -17,25 +17,25 @@ namespace BugReport.Repository.user
         
         public bool AuthenticateUser(string loginID, string password)
         {
-            using (ReportDbContext db = new ReportDbContext())
+            using (ReportDbContext db = new ())
             {
-                UserManagementProcedure sp_User = new UserManagementProcedure(db);
+                UserManagementProcedure sp_User = new (db);
                 return sp_User.CheckAuthenticateUser(loginID, password);
             }
         }
 
         public void CreateUser(string loginID, string password, string userNm)
         {
-            using (ReportDbContext db = new ReportDbContext())
+            using (ReportDbContext db = new ())
             {
-                UserManagementProcedure sp_User = new UserManagementProcedure(db);
+                UserManagementProcedure sp_User = new (db);
                 sp_User.CreateUser(loginID, password, userNm);
             }
         }
 
         public User GetUser(string loginID)
         {
-            using (ReportDbContext db = new ReportDbContext())
+            using (ReportDbContext db = new ())
             {
                 var org = db.Users.Where(x => x.UserId == loginID).FirstOrDefault();
                 if (org == null) throw new Exception(ExceptionMessages.NotFoundUser);
