@@ -13,13 +13,13 @@ namespace BugReport.Repository.interfaces
     {
         public void CreateReport(DefectReport report);
 
-        public List<DefectReportView> GetReports(int page, int row);
+        public List<vw_DefectReportInfo> GetReports(int page, int row);
 
-        public DefectReportView GetReport(int id);
+        public vw_DefectReportInfo GetReport(int id);
 
-        public List<DefectReportView> GetReports(bool demand);
+        public List<vw_DefectReportInfo> GetReports(bool demand);
 
-        public List<DefectReportView> GetReports(bool demand, DateTime lastWriteTime);
+        public List<vw_DefectReportInfo> GetReports(bool demand, DateTime lastWriteTime);
 
         public void UpdateReport(int defectId, DefectReport report);
 

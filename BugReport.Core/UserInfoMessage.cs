@@ -9,7 +9,7 @@ namespace BugReport.Core
 {
     public class UserInfoMessage
     {
-        public vw_UserInfoData? UserData { get; set; }
+        public vw_UserInfo? UserData { get; set; }
         public string? Message { get; set; }
         public bool Success { get; set; }
     }

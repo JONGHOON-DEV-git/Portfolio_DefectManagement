@@ -1,4 +1,5 @@
 using BugReport.Repository.interfaces;
+using BugReport.Repository.report;
 using BugReport.Repository.user;
 using BugReport.Service;
 using BugReport.Service.authorization;
@@ -12,6 +13,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IUserRepository, EFCoreUserRepository>();
 builder.Services.AddScoped<AuthorizationManager>();
 builder.Services.AddScoped<IUserManagementService, UserManagementService>();
+builder.Services.AddScoped<IReportRepository, EFCoreReportRepository>();
+builder.Services.AddScoped<DefectReportService>();
 
 
 var app = builder.Build();

@@ -15,7 +15,7 @@ namespace BugReport.Backend.Controllers
             _ReportService = defectReportService;
         }
 
-        public IActionResult Index()
+        public IActionResult IssuePage()
         {
             return View();
         }

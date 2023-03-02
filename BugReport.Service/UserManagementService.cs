@@ -13,7 +13,7 @@ namespace BugReport.Service
     public class UserManagementService : IUserManagementService
     {
         private readonly IUserRepository _UserRepository;
-        
+
         public UserManagementService(IUserRepository userRepository)
         {
             this._UserRepository = userRepository;
@@ -27,28 +27,19 @@ namespace BugReport.Service
         /// <returns></returns>
         public UserInfoMessage AuthenticateUser(string userId, string password)
         {
-            if(_UserRepository.AuthenticateUser(userId, password))
+            if (_UserRepository.AuthenticateUser(userId, password))
             {
                 var user = _UserRepository.GetUser(userId);
-                var userInfo = new UserInfoData(user.UserId!, user.Username);
+                var userInfo = new vw_UserInfo(user.UserId!, user.Username);
                 return new UserInfoMessage() { UserData = userInfo, Success = true, Message = ExceptionMessages.NotMatchedIdOrPassword };
             }
             else
             {
-                return new UserInfoMessage() { Success =false, Message = ExceptionMessages.NotMatchedIdOrPassword };
+                return new UserInfoMessage() { Success = false, Message = ExceptionMessages.NotMatchedIdOrPassword };
             }
         }
 
-        public void CreateUser(string userId, string password, string userNm) => _UserRepository.CreateUser(userId, password, userNm);
-
-        //public void DeleteUser(int id)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public void UpdateUser(int id)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public void CreateUser(string userId, string password, string userNm)
+            => _UserRepository.CreateUser(userId, password, userNm);
     }
 }

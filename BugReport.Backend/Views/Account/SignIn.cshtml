@@ -1,16 +1,43 @@
-﻿<form method="post" action="/SignUpRequest">
-    <table>
-        <tr>
-            <td>Email:</td>
-            <td><input type="text" name="Id" required /></td>
-        </tr>
-        <tr>
-            <td>Password:</td>
-            <td><input type="password" name="Password" required /></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td><button type="submit">Log in</button></td>
-        </tr>
-    </table>
-</form>
+﻿@{
+    Layout = null;
+}
+<link rel="stylesheet" href="/css/site.css" />
+<script>
+    const form = document.querySelector('form');
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const formData = new FormData(form);
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', '/Account/LogIn');
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                // Response is successful, store JWT in local storage
+                const token = xhr.getResponseHeader('Authorization').split(' ')[1];
+                localStorage.setItem('jwt', token);
+            }
+            else {
+                console.log('Request failed.  Returned status of ' + xhr.status);
+            }
+        };
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.send(new URLSearchParams(formData).toString());
+    });
+</script>
+
+
+<div class="form-container">
+    <form method="post" action="/Account/LogIn">
+        <div>
+            <label for="username">ID</label>
+            <input type="text" id="userId" name="userId" required>
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div>
+            <button type="submit">Login</button>
+        </div>
+    </form>
+</div>

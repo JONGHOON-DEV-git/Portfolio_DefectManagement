@@ -19,7 +19,7 @@ namespace BugReport.Service.authorization
             Configuration = configuration;
         }
 
-        public string GenerateJWTToken(UserInfoData user)
+        public string GenerateJWTToken(vw_UserInfo user)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:SecretKey"]!));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
@@ -28,8 +28,8 @@ namespace BugReport.Service.authorization
             {
                 new Claim(JwtRegisteredClaimNames.Sub, Configuration["Jwt:Subject"]!),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(ClaimTypes.Name, user.UserName),
-                new Claim(ClaimTypes.NameIdentifier, user.LoginID)
+                new Claim(ClaimTypes.Name, user.Username),
+                new Claim(ClaimTypes.NameIdentifier, user.UserId!)
             };
 
             var token = new JwtSecurityToken(

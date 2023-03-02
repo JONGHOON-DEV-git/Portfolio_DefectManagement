@@ -45,5 +45,7 @@ namespace BugReport.Repository.report
         {
             throw new NotImplementedException();
         }
+
+      
     }
 }

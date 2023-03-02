@@ -28,26 +28,27 @@ namespace BugReport.Backend.Controllers
             return View();
         }
 
-        [HttpPost("/RequestSignUp")]
-        public IActionResult RequestSignUp([FromForm] RequestSignUpData requestData)
+        [HttpPost("/Account/SignUp")]
+        public IActionResult SignUp(IFormCollection frm)
         {
             try
             {
-                UserService.CreateUser(requestData.LoginID!, requestData.Password!, requestData.UserName!);
-                return Ok();
+
+                UserService.CreateUser(frm["userId"]!, frm["password"]!, frm["userName"]!);
+                return RedirectToAction("Index", "Home");
             }
-             catch(Exception ex)
+            catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest("가입 실패");
             }
         }
 
         [HttpPost]
         [AllowAnonymous]
-        public IActionResult Login([FromBody] RequestLoginData login)
+        public IActionResult Login(IFormCollection login)
         {
             IActionResult response = Unauthorized();
-            var userInfoMessage = this.UserService.AuthenticateUser(login.LoginID!, login.Password!);
+            var userInfoMessage = this.UserService.AuthenticateUser(login["userId"]!, login["password"]!);
             if (userInfoMessage.Success)
             {
                 var tokenString = AuthManager.GenerateJWTToken(userInfoMessage.UserData!);

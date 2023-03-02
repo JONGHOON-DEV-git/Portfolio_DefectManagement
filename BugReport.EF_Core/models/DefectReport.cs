@@ -5,7 +5,7 @@ namespace BugReport.EF_Core.models;
 
 public partial class DefectReport
 {
-    public long Seq { get; set; }
+    public long DefectReportId { get; set; }
 
     public long? ParentSeq { get; set; }
 
@@ -21,7 +21,7 @@ public partial class DefectReport
 
     public string? Description { get; set; }
 
-    public string? CategorySystemCode { get; set; }
+    public string? CategoryCode { get; set; }
 
-    public int? Depth { get; set; }
+    public string? StatusCode { get; set; }
 }

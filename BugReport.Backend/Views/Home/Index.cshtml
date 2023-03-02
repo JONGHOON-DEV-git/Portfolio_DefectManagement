@@ -1,50 +1,54 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
-    Layout = null;
+    
 }
-<html>
-<head>
-    <script type="text/javascript" src="~/lib/jquery/dist/jquery.js"></script>
-    <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function () {
-            var token = localStorage.getItem('jwtToken');
-            var navbar = document.getElementById('navbar');
-            var links = '';
-            if (token) {
-                // JWT 토큰이 있을 경우
-                $.ajax({
-                    url: '/api/profile',
-                    headers: {
-                        'Authorization': 'Bearer ' + token
-                    },
-                    success: function (data) {
-                        links += '<a href="/profile">' + data.Username + '</a>';
-                        links += '<a href="/logout">로그아웃</a>';
-                        navbar.innerHTML = links;
-                    },
-                    error: function () {
-                        links += '<a href="/Home/SignIn">로그인</a>';
-                        links += '<a href="/Home/signup">회원가입</a>';
-                        navbar.innerHTML = links;
-                    }
-                });
-            } else {
-                // JWT 토큰이 없을 경우
-                links += '<a href="/Account/SignIn">로그인</a>';
-                links += '<a href="/Account/signup">회원가입</a>';
-                navbar.innerHTML = links;
-            }
+<p>Welcome to the index page!</p>
+<link rel="stylesheet" href="https://uicdn.toast.com/grid/latest/tui-grid.css" />
+<script src="https://uicdn.toast.com/grid/latest/tui-grid.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var gridData = new Array();
+        gridData.push({
+            name :'test',
+            artist :'artist1',
+            type : 'typetest',
+            release :'rel',
+            genre :'gen'
         });
 
-        function checkLocalStorage() {
-            localStorage.getItem('jwtToken')
-        }
-    </script>
-</head>
+
+        const grid = new tui.Grid({
+            el: document.getElementById('grid'),
+            data: gridData,
+            scrollX: false,
+            scrollY: false,
+            columns: [
+                {
+                    header: 'Name',
+                    name: 'name'
+                },
+                {
+                    header: 'Artist',
+                    name: 'artist'
+                },
+                {
+                    header: 'Type',
+                    name: 'type'
+                },
+                {
+                    header: 'Release',
+                    name: 'release'
+                },
+                {
+                    header: 'Genre',
+                    name: 'genre'
+                }
+            ]
+        });
+    });
+</script>
 <body>
-    <div id="navbar">
-    </div>
+    ...
+    <div id="grid"></div>
+    ...
 </body>
-</html>
-
-

@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -28,6 +29,9 @@ namespace BugReport.Repository.user
         {
             using (ReportDbContext db = new ())
             {
+                if (db.Users.Where(x => x.UserId == loginID).FirstOrDefault() != null) 
+                    throw new Exception(ExceptionMessages.ContainsId);
+
                 UserManagementProcedure sp_User = new (db);
                 sp_User.CreateUser(loginID, password, userNm);
             }
