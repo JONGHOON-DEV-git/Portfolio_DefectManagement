@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BugReport.Core\BugReport.Core.csproj" />
     <ProjectReference Include="..\BugReport.EF_Core\BugReport.EF_Core.csproj" />
   </ItemGroup>
 

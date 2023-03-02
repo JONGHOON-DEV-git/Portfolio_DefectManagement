@@ -16,14 +16,6 @@ namespace BugReport.Repository.interfaces
         //Authenticate
         public bool AuthenticateUser(string userId, string password);
 
-        //Delete User Info
-        public void DeleteUser(int id);
-
-        //Update User Info 
-        public void UpdateUser(int id);
-
-        //Get User Info 
-        public User GetUser(int id);
 
         public User GetUser(string userId);
     }

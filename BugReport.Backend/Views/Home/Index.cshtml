@@ -1,0 +1,53 @@
+﻿@using Microsoft.AspNetCore.Authentication
+@using Microsoft.IdentityModel.Tokens
+@using System.IdentityModel.Tokens.Jwt;
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@{
+    ViewData["Title"] = "Home Page";
+    var token = HttpContextAccessor.HttpContext.GetTokenAsync("access_token").Result;
+    var handler = new JwtSecurityTokenHandler();
+    var jwtToken = handler.ReadJwtToken(token);
+    var isAuthenticated = jwtToken.Issuer.Equals("my_issuer");
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    @if (isAuthenticated)
+    {
+        <form method="post" action="/logout">
+            <button type="submit">Logout</button>
+        </form>
+    }
+    else
+    {
+        <button onclick="showLogin()">Login</button>
+    }
+</div>
+
+<div id="login" style="display:none">
+    @await Html.PartialAsync("Login")
+</div>
+
+@section scripts {
+    <script>
+        function showLogin() {
+            document.getElementById("login").style.display = "block";
+        }
+
+        $(document).ready(function() {
+            var token = localStorage.getItem("access_token");
+            if (token) {
+                $.ajax({
+                    type: "POST",
+                    url: "/autologin",
+                    data: { token: token },
+                    success: function() {
+                        location.reload();
+                    }
+                });
+            }
+        });
+    </script>
+}

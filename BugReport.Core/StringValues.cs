@@ -1,7 +1,9 @@
 ﻿namespace BugReport.Core
 {
-    public class Class1
+    public class StringValues
     {
 
     }
+
+    
 }
